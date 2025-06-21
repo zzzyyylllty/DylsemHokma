@@ -18,7 +18,7 @@ import taboolib.module.kether.player
 import java.time.Duration
 
 
-@KetherParser(["minititle"], shared = true)
+@KetherParser(["minititle","mtitle"], shared = true)
 fun actionMiniTitle() = combinationParser() {
     it.group(
         text(),
@@ -33,7 +33,7 @@ fun actionMiniTitle() = combinationParser() {
             val subTitle = mm.deserialize(t2?.replace("@sender", player.name) ?: "<white>")
             val times = Title.Times.times(Duration.ofMillis(i.toLong()), Duration.ofMillis(s.toLong()), Duration.ofMillis(o.toLong()))
             val title: Title = Title.title(mainTitle, subTitle, times)
-            player.showTitle(title)
+            (player as Audience).showTitle(title)
         }
     }
 }

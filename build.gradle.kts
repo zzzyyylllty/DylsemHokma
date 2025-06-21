@@ -10,6 +10,7 @@ plugins {
 taboolib {
     env {
         // 安装模块
+        debug = true
         install(Basic, Bukkit, BukkitHook, BukkitNMSUtil, Database, LettuceRedis, Kether)
     }
     version {
