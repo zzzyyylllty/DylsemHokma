@@ -18,7 +18,7 @@ import taboolib.module.kether.player
 import java.time.Duration
 
 
-@KetherParser(["minititle","mtitle"], shared = true)
+@KetherParser(["minititle","mtitle"], namespace = "dylsem", shared = true)
 fun actionMiniTitle() = combinationParser() {
     it.group(
         text(),

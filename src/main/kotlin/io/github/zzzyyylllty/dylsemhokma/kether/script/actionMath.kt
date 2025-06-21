@@ -6,15 +6,15 @@ import taboolib.module.kether.script
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.command.CommandSender
 import taboolib.module.kether.combinationParser
+import kotlin.math.ceil
 
 
-@KetherParser(["minitell", "mtell"], namespace = "dylsem",  shared = true)
-fun actionMiniTell() = combinationParser {
+@KetherParser(["ceil"], namespace = "dylsem", shared = true)
+fun actionMathCeil() = combinationParser {
     val mm = MiniMessage.miniMessage()
     it.group(text()).apply(it) { str ->
         now {
-            val sender = script().sender?.castSafely<CommandSender>()
-            (sender as Audience).sendMessage(mm.deserialize(str))
+            return@now ceil(str.toDouble())
         }
     }
 }
