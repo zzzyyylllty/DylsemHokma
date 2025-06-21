@@ -1,4 +1,4 @@
-package io.github.zzzyyylllty.sertraline.function.kether.script
+package io.github.zzzyyylllty.dylsemhokma.kether.script
 
 import io.github.zzzyyylllty.dylsemhokma.DylsemHokma.console
 import net.kyori.adventure.audience.Audience
@@ -18,8 +18,8 @@ import taboolib.module.kether.player
 import java.time.Duration
 
 
-@KetherParser(["minititle","mtitle"], namespace = "dylsem", shared = true)
-fun actionMiniTitle() = combinationParser() {
+@KetherParser(["minititle","mtitle","comptitle"], shared = true)
+fun actionMiniMessageTitle() = combinationParser() {
     it.group(
         text(),
         command("subtitle", then = text()).option(),
@@ -31,7 +31,7 @@ fun actionMiniTitle() = combinationParser() {
             val mm = MiniMessage.miniMessage()
             val mainTitle = mm.deserialize(t1.replace("@sender", player.name))
             val subTitle = mm.deserialize(t2?.replace("@sender", player.name) ?: "<white>")
-            val times = Title.Times.times(Duration.ofMillis(i.toLong()), Duration.ofMillis(s.toLong()), Duration.ofMillis(o.toLong()))
+            val times = Title.Times.times(Duration.ofSeconds(i.toLong()), Duration.ofSeconds(s.toLong()), Duration.ofSeconds(o.toLong()))
             val title: Title = Title.title(mainTitle, subTitle, times)
             (player as Audience).showTitle(title)
         }

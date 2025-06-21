@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender
 import taboolib.module.kether.combinationParser
 
 
-@KetherParser(["minitell", "mtell"], namespace = "dylsem",  shared = true)
+@KetherParser(["minitell", "mtell", "comptell"],  shared = true)
 fun actionMiniTell() = combinationParser {
     val mm = MiniMessage.miniMessage()
     it.group(text()).apply(it) { str ->
