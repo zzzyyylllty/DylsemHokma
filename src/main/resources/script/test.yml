@@ -1,0 +1,2 @@
+testscript:
+  - minitell "Hello World!"
